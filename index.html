@@ -17,13 +17,13 @@
 		<div ng-controller="tabCtrl" layout="column">
 	        <md-toolbar>
 	          <h2 class="md-toolbar-tools">
-	            <span>Ejemplo Material y Bootstrap</span>
+	            <span class="white">Examen Proyecto web</span>
 	          </h2>
 	        </md-toolbar>
 	        <md-tabs md-stretch-tabs
 	                 md-selected="selectedIndex">
 	           <md-tab label="Registro de jugadores"></md-tab>
-	           <md-tab label="Registro de propiedades"></md-tab>
+	           <md-tab label="Comprar propiedades"></md-tab>
 	           <md-tab label="tab 3"></md-tab>
 	        </md-tabs>
         	<div id="content" ui-view flex> </div>
@@ -47,5 +47,6 @@
 		<!-- Scripts de la aplicacion -->
 			<script src="./app.js"></script>
 			<script src="./route.js"></script>
+			<script src="./components/services/user.service.js"></script>
 	</body>
 </html>
