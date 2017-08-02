@@ -21,6 +21,11 @@
 		    controller: 'userController',
 		    controllerAs: 'vm'
 		})
+		.state('property',{
+			url: '/propiedad',
+			templateUrl: './components/property/property.view.html',
+			css : './css/user.style.css'
+		})
 
 		$urlRouterProvider.otherwise('/usuarios');
 	};
@@ -34,7 +39,7 @@
                     $location.url("/usuarios");
                     break;
                 case 1:
-                    $location.url("/");
+                    $location.url("/propiedad");
                     break;
                 case 2:
                     $location.url("/");
