@@ -1,0 +1,44 @@
+<section>
+	<form name="frmRegistroUsuario" class="col-md-3 col-md-offset-4" ng-submit="vm.registerUser(vm.user)">
+
+		<!-- Nombre de nuevo usuario -->
+			<md-input-container flex-offset class="md-block">
+
+	        	<label>Nombre de Usuario</label>
+
+	        	<input type="text" name="name" id="name" class="form-control" ng-model="vm.user.name" required />
+
+				<!-- Mensaje de retroalimentacion -->
+
+		        <div ng-messages="projectForm.clientEmail.$error" role="alert">
+		          <div ng-message-exp="['required']">
+		            Usuario es requerido
+		          </div>
+		        </div>
+	      	</md-input-container>
+
+	    <!-- Numero de telefono -->
+	    	<md-input-container flex-offset class="md-block">
+
+	        	<label>Teléfono</label>
+
+	        	<input type="number" name="name" id="name" class="form-control" ng-model="vm.user.phone" required />
+
+				<!-- Mensaje de retroalimentacion -->
+
+		        <div ng-messages="projectForm.clientEmail.$error" role="alert">
+		          <div ng-message-exp="['required']">
+		            Usuario es requerido
+		          </div>
+		        </div>
+	      	</md-input-container>
+
+
+	      	<button type="submit" class="btn btn-primary btn-lg" ng-click="frmRegistroUsuario.$setPristine()">Agregar Usuario</button>
+
+
+			<!-- Mapa -->
+	      	<!-- <iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d1965.0058695363427!2d-84.03107!3d9.932979860539223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1suniversidad+cenfotec!5e0!3m2!1ses!2s!4v1396040769596" width="450" height="300" frameborder="0"></iframe> -->
+
+	</form>
+</section>
