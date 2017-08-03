@@ -24,7 +24,14 @@
 		.state('property',{
 			url: '/propiedad',
 			templateUrl: './components/property/property.view.html',
-			css : './css/user.style.css'
+			css : './css/user.style.css',
+			resolve: {
+		    	load: ['$ocLazyLoad', function($ocLazyLoad){
+		    		return $ocLazyLoad.load('./components/users/user.controller.js')
+		    	}]
+		    },
+		    controller: 'userController',
+		    controllerAs: 'vm'
 		})
 
 		$urlRouterProvider.otherwise('/usuarios');
