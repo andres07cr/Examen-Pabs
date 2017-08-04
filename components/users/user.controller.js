@@ -50,7 +50,6 @@
       var validate = userService.checkProperty(newbuy);
       if (validate == false) {
       userService.buy(newbuy);
-      userService.update(newbuy);
       init();
       cleanTwo();
       }else{

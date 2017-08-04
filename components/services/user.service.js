@@ -798,7 +798,7 @@
       return validate;
     }
 
-    function _update(pBuy){
+    function _update(pBuy,pPrice){
       var list = _getUsers();
       for( var i = 0; i < list.length; i++){
         if (pBuy.player === list[i].name) {
@@ -807,7 +807,7 @@
             code: info.code,
             name: info.name,
             alias: info.alias,
-            money: info.money,
+            money: info.money - pPrice,
             property: info.property
           }
           newPlayer.property.push(pBuy.property)
@@ -819,12 +819,15 @@
 
     function _buy(pBuy){
       var list = _getProperty();
+      var price = 0;
       for(var i = 0; i < list.length; i++){
         if (pBuy.property === list[i].name) {
           list[i].ownedby = pBuy.player;
+          price = list[i].price;
         }
         localStorage.setItem('lsProperty', JSON.stringify(list));
       }
+      _update(pBuy,price);
     }
 
     function _getUsers() {
