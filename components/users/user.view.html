@@ -19,13 +19,13 @@
               <label class="control-label">Nombre</label>
               <input name="" type="text" class="form-control" required ng-model="vm.name">
             </div>
-            <div class="form-group label-floating">
-              <label class="control-label">Nombre Contacto</label>
-              <input name="" type="text" class="form-control"></input>
+            <div class="col-md-6">
+              <label>Foto</label>
+              <input type="file" id="photo" ng-model="academyctrl.image">
             </div>
           </div>
         </div>
-		<button class="btn btn-default pull-right" ng-click="vm.Save()" ng-disabled="RegPlayer.$invalid">Guardar</button>
+		<button class="btn btn-default pull-right" ng-click="vm.preSave()" ng-disabled="RegPlayer.$invalid">Guardar</button>
 	</form>
 </section>
 <script src="form.js"></script>

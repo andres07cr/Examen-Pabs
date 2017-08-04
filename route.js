@@ -1,7 +1,7 @@
 (function(){
 	'use strict'
 	angular
-	.module('appRoutes', ['ui.router', 'oc.lazyLoad', 'angularCSS'])
+	.module('appRoutes', ['ui.router', 'oc.lazyLoad', 'angularCSS','ngFileUpload'])
 	.config(configuration)
 	.controller('tabCtrl', tabCtrl);
 
@@ -33,6 +33,17 @@
 		    controller: 'userController',
 		    controllerAs: 'vm'
 		})
+		.state('Listproperty',{
+			url: '/propiedades',
+			templateUrl: './components/property/propertyList.view.html',
+			resolve: {
+		    	load: ['$ocLazyLoad', function($ocLazyLoad){
+		    		return $ocLazyLoad.load('./components/users/user.controller.js')
+		    	}]
+		    },
+		    controller: 'userController',
+		    controllerAs: 'vm'
+		})
 
 		$urlRouterProvider.otherwise('/usuarios');
 	};
@@ -49,7 +60,7 @@
                     $location.url("/propiedad");
                     break;
                 case 2:
-                    $location.url("/");
+                    $location.url("/propiedades");
                     break;
             }
         });

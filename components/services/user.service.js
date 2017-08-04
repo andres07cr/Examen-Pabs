@@ -54,7 +54,7 @@
       ],
       housecost: 50,
       group: "Purple",
-      ownedby:'',
+      ownedby:-1,
       buildings: 0,
       mortgaged: false,
       probability: 2.1314,

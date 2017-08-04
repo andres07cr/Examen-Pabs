@@ -3,8 +3,10 @@
   angular
     .module('myApp')
     .controller('userController', userController);
-  function userController(userService) {
+    userController.$inject = ['userService', 'ImageService', 'Upload'];
+  function userController(userService,ImageService, Upload) {
     var vm = this;
+    vm.cloudObj = ImageService.getConfiguration();
 
     function init() {
       vm.players = userService.getUsers();
@@ -12,13 +14,14 @@
      
     }
     init();
-    vm.Save = function(){
+    vm.Save = function(pimage){
       var newPlayer = {
         code: vm.code,
         name: vm.name,
         alias: vm.alias,
         money: 1000,
-        property:[]
+        property:[],
+        photo: pimage
       }
       var validate = userService.check(newPlayer);
       if (validate == false) {
@@ -26,6 +29,18 @@
       init();
       clear();
       }
+    }
+    vm.preSave = function() {
+      vm.cloudObj.data.file = document.getElementById("photo").files[0];
+      if (vm.cloudObj.data.file == null) {
+        vm.Save();
+      }else{
+      Upload.upload(vm.cloudObj)
+        .success(function(data) {
+          vm.Save(data.url);
+        });
+      }
+
     }
     vm.SaveTwo = function(){
       var newbuy = {
