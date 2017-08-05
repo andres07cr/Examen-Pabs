@@ -44,6 +44,17 @@
 		    controller: 'userController',
 		    controllerAs: 'vm'
 		})
+		.state('userList',{
+			url: '/listaUsuarios',
+			templateUrl: './components/users/userList.view.html',
+			resolve: {
+		    	load: ['$ocLazyLoad', function($ocLazyLoad){
+		    		return $ocLazyLoad.load('./components/users/user.controller.js')
+		    	}]
+		    },
+		    controller: 'userController',
+		    controllerAs: 'vm'
+		})
 
 		$urlRouterProvider.otherwise('/usuarios');
 	};
@@ -61,6 +72,9 @@
                     break;
                 case 2:
                     $location.url("/propiedades");
+                    break;
+                case 3:
+                    $location.url("/listaUsuarios");
                     break;
             }
         });

@@ -808,6 +808,7 @@
             name: info.name,
             alias: info.alias,
             money: info.money - pPrice,
+            photo: info.photo,
             property: info.property
           }
           newPlayer.property.push(pBuy.property)
