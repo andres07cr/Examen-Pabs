@@ -28,6 +28,11 @@
       userService.setUsers(newPlayer);
       init();
       clear();
+      swal(
+      'Jugador registrado!',
+      '',
+      'success'
+      )
       }
     }
     vm.preSave = function() {
@@ -52,8 +57,17 @@
       userService.buy(newbuy);
       init();
       cleanTwo();
+      swal(
+        'Propiedad comprada!',
+        '',
+        'success'
+      )
       }else{
-        console.log('propiedad ya está comprada')
+        swal(
+        'La propiedad ya tiene dueño!',
+        '',
+        'info'
+      )
       }
     }
     function clear(){
